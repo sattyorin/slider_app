@@ -1,25 +1,32 @@
-import logo from './logo.svg';
+import React from 'react';
 import './App.css';
+import styled from "styled-components";
+import RangeSlider from "./components/RangeSlider"
+import useRangeSlider from "./hooks/useRangeSlider"
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+const StyledApp = styled.div`
+	background-color: #8e82bf;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	height: 100vh;
+	width: 100%;
+`;
+
+const Container = styled.div`
+	width: 80vmin;
+`;
+
+const App = () => {
+	const [rangeSlider] = useRangeSlider();
+  
+	return (
+		<StyledApp>
+			<Container>
+				<RangeSlider rangeSlider={rangeSlider} />
+			</Container>
+		</StyledApp>
+	);
 }
 
 export default App;
